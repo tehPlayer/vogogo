@@ -1,8 +1,6 @@
 # Vogogo
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/vogogo`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+This is API wrapper for Vogogo. Built according to API version V3. More info: https://docs.vogogo.com/api/v3
 
 ## Installation
 
@@ -20,9 +18,32 @@ Or install it yourself as:
 
     $ gem install vogogo
 
-## Usage
+## Initialization
 
-TODO: Write usage instructions here
+By default gem will look for `ENV['VOGOGO_SECRET']`.
+
+```ruby
+@client = Vogogo::Client.new
+```
+
+If you still prefer to provide your secret on initialize, then put it as an argument.
+
+```ruby
+@client = Vogogo::Client.new('very-secret-key')
+```
+
+## Basic usage
+
+According to API you can use methods mentioned there. For example, Customers:
+
+```ruby
+@client.get_customers
+@client.create_customer(params_for_customer_as_stated_in_documentation)
+@client.get_customer(customer_id)
+@client.update_customer(customer_id, params)
+```
+
+For more info, just check the code inside `lib/vogogo`.
 
 ## Development
 
@@ -32,7 +53,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/vogogo. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/tehPlayer/vogogo-ruby. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
 
 
 ## License
