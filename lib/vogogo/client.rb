@@ -9,8 +9,8 @@ module Vogogo
     include Vogogo::Risk::IndustryTypes
     include Vogogo::Risk::Occupations
     include Vogogo::Risk::SupportedCountries
-    include Vogogo::Risk::PhoneNumbers
-    include Vogogo::Risk::Documents
+    # include Vogogo::Risk::PhoneNumbers
+    # include Vogogo::Risk::Documents
 
     def initialize(username = nil, password = nil)
       @username = username || ENV['VOGOGO_USERNAME']
