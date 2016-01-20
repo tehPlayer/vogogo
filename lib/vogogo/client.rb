@@ -12,9 +12,8 @@ module Vogogo
     # include Vogogo::Risk::PhoneNumbers
     # include Vogogo::Risk::Documents
 
-    def initialize(username = nil, password = nil)
-      @username = username || ENV['VOGOGO_USERNAME']
-      @password = password || ENV['VOGOGO_PASSWORD']
+    def initialize(secret = nil)
+      @secret = secret || ENV['VOGOGO_SECRET']
     end
 
     protected
@@ -34,7 +33,7 @@ module Vogogo
             request = Net::HTTP::Get.new(@uri.request_uri)
         end
         request["content-type"] = "application/json"
-        request.basic_auth(@username, @password)
+        request.basic_auth(@secret, '')
         request.body = params.to_json
         response = @http.request(request)
 
