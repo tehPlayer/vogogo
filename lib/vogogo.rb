@@ -1,6 +1,6 @@
-require "vogogo/client"
-require "vogogo/version"
 require "vogogo/notifications/events"
 require "vogogo/risk/customers"
 require "vogogo/risk/occupations"
 require "vogogo/risk/supported_countries"
+require "vogogo/client"
+require "vogogo/version"

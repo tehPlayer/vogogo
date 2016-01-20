@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{Vogogo API client.}
   spec.description   = %q{Vogogo API client.}
-  spec.homepage      = "https://github.com/tehplayer/vogogo"
+  spec.homepage      = "https://github.com/tehplayer/vogogo-ruby"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
