@@ -1,5 +1,6 @@
+require "vogogo/client"
 require "vogogo/version"
-
-module Vogogo
-  # Your code goes here...
-end
+require "vogogo/notifications/events"
+require "vogogo/risk/customers"
+require "vogogo/risk/occupations"
+require "vogogo/risk/supported_countries"
