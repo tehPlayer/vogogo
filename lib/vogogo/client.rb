@@ -37,11 +37,14 @@ module Vogogo
         request.body = params.to_json
         response = @http.request(request)
 
-        raise Vogogo::ClientError.new("401 Unauthorized") if response.code.to_i == 401
-        raise Vogogo::ClientError.new("400 Bad Request") if response.code.to_i == 400
-        raise Vogogo::ClientError.new("500 Internal Sever Error") if response.code.to_i == 500
-        raise Vogogo::ClientError.new("501 Not implemented") if response.code.to_i == 501
-        raise Vogogo::ClientError.new("Response status code: #{response.code}") unless response.code.to_i == 200
+        case response.code.to_i
+        when 200 then nil
+        when 401 then raise Vogogo::ClientError.new("401 Unauthorized")
+        when 400 then raise Vogogo::ClientError.new("400 Bad Request")
+        when 500 then raise Vogogo::ClientError.new("500 Internal Sever Error")
+        when 501 then raise Vogogo::ClientError.new("501 Not implemented")
+        else raise Vogogo::ClientError.new("Response status code: #{response.code}")
+        end
 
         JSON.parse(response.body)
       end
